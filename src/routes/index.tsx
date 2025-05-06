@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
 import { Navigate, Route, Routes } from "react-router";
+import { AuthContext } from "../context/AuthContext";
 import Home from "../views/home";
 import Register from "../views/auth/register";
 import Login from "../views/auth/login";
+import Dashboard from "../views/admin/dashboard";
 
 export default function AppRoutes() {
   // get value from auth context
@@ -38,6 +39,14 @@ export default function AppRoutes() {
           ) : (
             <Login />
           )
+        }
+      />
+
+      {/* route "/admin/dashboard" */}
+      <Route
+        path="/admin/dashboard"
+        element={
+          isAuthenticated ? <Dashboard /> : <Navigate to="/login" replace />
         }
       />
     </Routes>
