@@ -57,7 +57,7 @@ const UserCreate: FC = () => {
         </div>
         <div className="col-md-9">
           <div className="card border-0 rounded-4 shadow-sm">
-            <div className="card-header">ADD USER</div>
+            <div className="card-header">Add User</div>
             <div className="card-body">
               <form onSubmit={storeUser}>
                 <div className="form-group mb-3">
@@ -70,7 +70,7 @@ const UserCreate: FC = () => {
                     placeholder="Full Name"
                   />
                   {errors.Name && (
-                    <div className="alert alert-danger mt-2 rounded-4">
+                    <div className="text-danger p-2">
                       {errors.Name}
                     </div>
                   )}
@@ -86,7 +86,7 @@ const UserCreate: FC = () => {
                     placeholder="Username"
                   />
                   {errors.Username && (
-                    <div className="alert alert-danger mt-2 rounded-4">
+                    <div className="text-danger p-2">
                       {errors.Username}
                     </div>
                   )}
@@ -102,7 +102,7 @@ const UserCreate: FC = () => {
                     placeholder="Email Address"
                   />
                   {errors.Email && (
-                    <div className="alert alert-danger mt-2 rounded-4">
+                    <div className="text-danger p-2">
                       {errors.Email}
                     </div>
                   )}
@@ -118,7 +118,7 @@ const UserCreate: FC = () => {
                     placeholder="Password"
                   />
                   {errors.Password && (
-                    <div className="alert alert-danger mt-2 rounded-4">
+                    <div className="text-danger p-2">
                       {errors.Password}
                     </div>
                   )}
@@ -126,7 +126,7 @@ const UserCreate: FC = () => {
 
                 <button
                   type="submit"
-                  className="btn btn-md btn-primary rounded-4 shadow-sm border-0"
+                  className="btn btn-md btn-primary rounded-2 shadow-sm border-0"
                   disabled={isPending}
                 >
                   {isPending ? "Saving..." : "Save"}
@@ -134,7 +134,7 @@ const UserCreate: FC = () => {
 
                 <Link
                   to="/admin/users"
-                  className="btn btn-md btn-secondary rounded-4 shadow-sm border-0 ms-2"
+                  className="btn btn-md btn-secondary rounded-2 shadow-sm border-0 ms-2"
                 >
                   Cancel
                 </Link>
