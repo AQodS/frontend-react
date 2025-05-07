@@ -5,6 +5,7 @@ import Home from "../views/home";
 import Register from "../views/auth/register";
 import Login from "../views/auth/login";
 import Dashboard from "../views/admin/dashboard";
+import UsersIndex from "../views/admin/users";
 
 export default function AppRoutes() {
   // get value from auth context
@@ -47,6 +48,14 @@ export default function AppRoutes() {
         path="/admin/dashboard"
         element={
           isAuthenticated ? <Dashboard /> : <Navigate to="/login" replace />
+        }
+      />
+
+      {/* route "/admin/users" */}
+      <Route
+        path="/admin/users"
+        element={
+          isAuthenticated ? <UsersIndex /> : <Navigate to="/login" replace />
         }
       />
     </Routes>

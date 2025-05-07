@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC, useState, useContext, FormEvent } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useLogin } from "../../hooks/auth/useLogin";
 import Cookies from "js-cookie";
 import { AuthContext } from "../../context/AuthContext";
@@ -113,6 +113,12 @@ export const Login: FC = () => {
               >
                 {isPending ? "Loading..." : "LOGIN"}
               </button>
+              <div className="text-center mt-2">
+                Don't have an account?{" "}
+                <Link to="/register" className="fw-bold text-decoration-none">
+                  Register
+                </Link>
+              </div>
             </form>
           </div>
         </div>

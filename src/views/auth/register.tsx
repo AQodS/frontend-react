@@ -1,5 +1,5 @@
 import { FC, FormEvent, useState } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useRegister } from "../../hooks/auth/useRegister";
 
 interface ValidationErrors {
@@ -126,6 +126,12 @@ const Register: FC = () => {
                 >
                   {isPending ? "Loading..." : "Register"}
                 </button>
+                <div className="text-center mt-2">
+                  Have an account?{" "}
+                  <Link to="/login" className="fw-bold text-decoration-none">
+                    Login
+                  </Link>
+                </div>
               </form>
             </div>
           </div>
