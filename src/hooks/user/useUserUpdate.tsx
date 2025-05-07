@@ -3,10 +3,10 @@ import Api from "../../services/api";
 import Cookies from "js-cookie";
 
 export interface UserRequest {
-  id: number;
   name: string;
   username: string;
   email: string;
+  password?: string; // Optional
 }
 
 export const useUserUpdate = () => {

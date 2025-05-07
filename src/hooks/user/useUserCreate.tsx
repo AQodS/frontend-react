@@ -3,10 +3,10 @@ import Cookies from "js-cookie";
 import Api from "../../services/api";
 
 export interface UserRequest {
-  id: number;
   name: string;
   username: string;
   email: string;
+  password: string;
 }
 
 export const useUserCreate = () => {
