@@ -2,10 +2,29 @@ import { FC } from "react";
 import SidebarMenu from "../../../components/SidebarMenu";
 import { Link } from "react-router";
 import { useUsers, User } from "../../../hooks/user/useUsers";
+import { useQueryClient } from "@tanstack/react-query";
+import { useUserDelete } from "../../../hooks/user/useUserDelete";
 
 const UsersIndex: FC = () => {
   // get users from useUsers
   const { data: users, isLoading, isError, error } = useUsers();
+
+  // init useQueryClient
+  const queryClient = useQueryClient();
+
+  // init useUserDelete
+  const { mutate, isPending } = useUserDelete();
+
+  // handle delete user
+  const handleDelete = (id: number) => {
+    if (confirm("Are you sure want to delete this user?")) {
+      mutate(id, {
+        onSuccess: () => {
+          queryClient.invalidateQueries({ queryKey: ["users"] });
+        },
+      });
+    }
+  };
 
   return (
     <div className="container mt-5 mb-5">
@@ -61,8 +80,11 @@ const UsersIndex: FC = () => {
                         >
                           Edit
                         </Link>
-                        <button className="btn btn-sm btn-danger rounded-2 shadow-sm border-0">
-                          Delete
+                        <button
+                          onClick={() => handleDelete(user.id)}
+                          className="btn btn-sm btn-danger rounded-2 shadow-sm border-0"
+                        >
+                          {isPending ? "Deleting..." : "Delete"}
                         </button>
                       </td>
                     </tr>
