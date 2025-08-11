@@ -21,6 +21,20 @@ const App: FC = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContext">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <a
+                  href="/"
+                  target="_blank"
+                  className="nav-link active"
+                  aria-current="page"
+                >
+                  GO-REACT
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
 
